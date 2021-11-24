@@ -29,4 +29,5 @@ const itemSchema = new mongoose.Schema(
   },
   { timestamps: true }
 )
+itemSchema.index({ list: 1, name: 1 }, { unique: true }) // compound index to ensure all items in a list have unique names
 export const Item = mongoose.model('item', itemSchema)
